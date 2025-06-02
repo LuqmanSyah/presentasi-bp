@@ -122,7 +122,7 @@ export default function Slide7({ slideNumber, totalSlides }: Slide7Props) {
                 transition={{ duration: 0.6, delay: 2.1 }}
                 className="text-xl md:text-2xl font-light text-transparent bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 bg-clip-text leading-relaxed italic"
               >
-                "Python bukan hanya bahasa pemrograman — ia adalah gerakan untuk membuat teknologi lebih mudah diakses oleh semua orang."
+                &ldquo;Python bukan hanya bahasa pemrograman — ia adalah gerakan untuk membuat teknologi lebih mudah diakses oleh semua orang.&rdquo;
               </motion.p>
 
               {/* Decorative elements */}

@@ -19,11 +19,11 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
       <div className="text-center space-y-8 p-8">
+        {" "}
         <div className="space-y-4">
           <h1 className="text-4xl md:text-6xl font-bold text-gray-800">Pengenalan Pemrograman dan Sejarah Python</h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">Berdasarkan Buku 'Dasar-Dasar Pemrograman Python'</p>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">Berdasarkan Buku &apos;Dasar-Dasar Pemrograman Python&apos;</p>
         </div>
-
         <div className="space-y-4">
           <div className="flex items-center justify-center space-x-2">
             <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-500"></div>

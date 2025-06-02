@@ -2,30 +2,18 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeftIcon, ChevronRightIcon, ArrowsPointingOutIcon, PlayIcon, PauseIcon, EyeIcon, SpeakerWaveIcon, SpeakerXMarkIcon, HomeIcon } from "@heroicons/react/24/outline";
+import { ChevronLeftIcon, ChevronRightIcon, ArrowsPointingOutIcon, PlayIcon, PauseIcon, SpeakerWaveIcon, SpeakerXMarkIcon, HomeIcon } from "@heroicons/react/24/outline";
 import { Slide1, Slide2, Slide3, Slide4, Slide5, Slide6, Slide7 } from "./components";
 
-// Slide components array
 const slideComponents = [Slide1, Slide2, Slide3, Slide4, Slide5, Slide6, Slide7];
 const totalSlides = slideComponents.length;
-
-// Slide titles for preview functionality
-const slideTitles = [
-  { title: "Python for Data Science", subtitle: "A Journey Through Programming Excellence", points: 4 },
-  { title: "What is Python?", subtitle: "Introduction to the versatile programming language", points: 4 },
-  { title: "The Early Days", subtitle: "Python's development journey from 1989-1994", points: 3 },
-  { title: "Growing Into Industry", subtitle: "Python's evolution and adoption in various sectors", points: 4 },
-  { title: "Python Philosophy", subtitle: "The Zen of Python and core principles", points: 2 },
-  { title: "Python Versions Evolution", subtitle: "From Python 1.0 to current usage statistics", points: 6 },
-  { title: "Thank You", subtitle: "Questions and discussion", points: 3 },
-];
 
 export default function PresentationPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [showTransitionFlash, setShowTransitionFlash] = useState(false);
   const [isAutoPlay, setIsAutoPlay] = useState(false);
-  const [autoPlayInterval, setAutoPlayInterval] = useState(8000); // 8 seconds default
+  const [autoPlayInterval] = useState(8000); // 8 seconds default
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [showPreview, setShowPreview] = useState(false);
   const [timeRemaining, setTimeRemaining] = useState(0);
@@ -42,9 +30,8 @@ export default function PresentationPage() {
   }, []);
 
   const playSound = (type: "next" | "prev" | "start" | "end") => {
-    if (!soundEnabled || !audioRef.current) return;
-
-    // Create different frequency sounds for different actions
+    if (!soundEnabled || !audioRef.current) return; // Create different frequency sounds for different actions
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const context = new (window.AudioContext || (window as any).webkitAudioContext)();
     const oscillator = context.createOscillator();
     const gainNode = context.createGain();
@@ -73,7 +60,6 @@ export default function PresentationPage() {
     oscillator.start(context.currentTime);
     oscillator.stop(context.currentTime + 0.3);
   };
-
   // Auto-play functionality
   useEffect(() => {
     if (isAutoPlay) {
@@ -100,7 +86,7 @@ export default function PresentationPage() {
         clearInterval(countdownTimer);
       };
     }
-  }, [isAutoPlay, currentSlide, autoPlayInterval]);
+  }, [isAutoPlay, currentSlide, autoPlayInterval]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const toggleAutoPlay = () => {
     setIsAutoPlay(!isAutoPlay);
