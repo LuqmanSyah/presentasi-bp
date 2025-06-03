@@ -191,31 +191,29 @@ export default function CppPresentationPage() {
     }
   };
   return (
-    <div className="min-h-screen relative overflow-hidden bg-slate-950" onKeyDown={handleKeyPress} tabIndex={0}>
+    <div className="min-h-screen relative overflow-hidden bg-gray-950" onKeyDown={handleKeyPress} tabIndex={0}>
       {/* Modern Background */}
       <div className="absolute inset-0">
         {/* Gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-950 to-slate-900"></div>
-
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-950 to-indigo-950"></div>
         {/* Animated grid pattern */}
         <div className="absolute inset-0 opacity-20">
           <div
             className="absolute inset-0"
             style={{
               backgroundImage: `
-                linear-gradient(rgba(168, 85, 247, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(168, 85, 247, 0.1) 1px, transparent 1px)
+                linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
               `,
               backgroundSize: "60px 60px",
               animation: "grid-move 20s linear infinite",
             }}
           />
-        </div>
-
+        </div>{" "}
         {/* Floating orbs */}
         <div className="absolute inset-0 overflow-hidden">
           <motion.div
-            className="absolute w-96 h-96 rounded-full bg-gradient-to-r from-purple-500/20 to-cyan-500/20 blur-3xl"
+            className="absolute w-96 h-96 rounded-full bg-gradient-to-r from-blue-500/20 to-cyan-500/20 blur-3xl"
             style={{ top: "10%", left: "10%" }}
             animate={{
               x: [0, 100, 0],
@@ -229,7 +227,7 @@ export default function CppPresentationPage() {
             }}
           />
           <motion.div
-            className="absolute w-80 h-80 rounded-full bg-gradient-to-r from-cyan-500/20 to-pink-500/20 blur-3xl"
+            className="absolute w-80 h-80 rounded-full bg-gradient-to-r from-cyan-500/20 to-indigo-500/20 blur-3xl"
             style={{ top: "50%", right: "10%" }}
             animate={{
               x: [0, -80, 0],
@@ -243,7 +241,7 @@ export default function CppPresentationPage() {
             }}
           />
           <motion.div
-            className="absolute w-72 h-72 rounded-full bg-gradient-to-r from-purple-500/20 to-blue-500/20 blur-3xl"
+            className="absolute w-72 h-72 rounded-full bg-gradient-to-r from-blue-500/20 to-teal-500/20 blur-3xl"
             style={{ bottom: "20%", left: "30%" }}
             animate={{
               x: [0, 60, 0],
@@ -257,7 +255,6 @@ export default function CppPresentationPage() {
             }}
           />
         </div>
-
         {/* Noise texture overlay */}
         <div
           className="absolute inset-0 opacity-30 mix-blend-soft-light"
@@ -306,20 +303,20 @@ export default function CppPresentationPage() {
           title="Previous Slide (ArrowLeft)"
         >
           <ChevronLeftIcon className="w-5 h-5 text-slate-300 group-hover:text-white" />
-        </button>
+        </button>{" "}
         {/* Next button */}
         <button
           onClick={nextSlide}
           disabled={currentSlide === totalSlides - 1}
-          className="p-2.5 bg-gradient-to-br from-purple-600 to-cyan-600 hover:from-purple-500 hover:to-cyan-500 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg disabled:opacity-40 disabled:cursor-not-allowed group"
+          className="p-2.5 bg-gradient-to-br from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg disabled:opacity-40 disabled:cursor-not-allowed group"
           title="Next Slide (ArrowRight)"
         >
           <ChevronRightIcon className="w-5 h-5 text-white" />
-        </button>
+        </button>{" "}
         {/* Progress Bar Vertical */}
         <div className="h-20 w-1.5 bg-slate-700/50 rounded-full overflow-hidden my-1 shadow-inner">
           <motion.div
-            className="w-full bg-gradient-to-b from-purple-500 to-cyan-600 rounded-full"
+            className="w-full bg-gradient-to-b from-blue-500 to-cyan-600 rounded-full"
             initial={{ height: "0%" }}
             animate={{ height: `${((currentSlide + 1) / totalSlides) * 100}%` }}
             transition={{ duration: 0.5, ease: "easeOut" }}
@@ -341,17 +338,70 @@ export default function CppPresentationPage() {
       {/* Transition Flash Effect */}
       <AnimatePresence>
         {showTransitionFlash && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }} className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-cyan-500/10 to-pink-500/10 z-20" />
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }} className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-cyan-500/10 to-indigo-500/10 z-20" />
         )}
       </AnimatePresence>{" "}
       {/* Main Slide Container */}
-      <div className="h-screen flex items-center justify-center relative pl-24">
-        <AnimatePresence mode="wait">
-          {(() => {
-            const SlideComponent = slideComponents[currentSlide];
-            return <SlideComponent key={currentSlide} slideNumber={currentSlide + 1} totalSlides={totalSlides} />;
-          })()}
-        </AnimatePresence>
+      <div className="h-screen flex flex-col relative pl-24">
+        {" "}
+        {/* Dynamic Slide Title */}
+        {currentSlide === 2 && (
+          <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="absolute top-8 left-4 z-30">
+            <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-orange-400 via-cyan-400 to-purple-500 bg-clip-text text-transparent">Evolusi C ke C++</h1>
+            <p className="text-lg text-gray-300">Perjalanan dari bahasa prosedural menuju pemrograman berorientasi objek</p>
+          </motion.div>
+        )}
+        {currentSlide === 3 && (
+          <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="absolute top-8 left-4 z-30">
+            <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 bg-clip-text text-transparent">Fitur Utama C++</h1>
+            <p className="text-lg text-gray-300">Kekuatan yang membuat C++ powerful dan fleksibel</p>
+          </motion.div>
+        )}
+        {currentSlide === 4 && (
+          <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="absolute top-8 left-4 z-30">
+            <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-cyan-400 via-purple-400 to-orange-500 bg-clip-text text-transparent">Paradigma Pemrograman</h1>
+            <p className="text-lg text-gray-300">Perbandingan Pendekatan Prosedural vs Object-Oriented</p>
+          </motion.div>
+        )}{" "}
+        {currentSlide === 5 && (
+          <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="absolute top-8 left-4 z-30">
+            <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">Perbandingan Prosedural vs. OOP</h1>
+            <p className="text-lg text-gray-300">Memahami perbedaan fundamental kedua paradigma</p>
+          </motion.div>
+        )}{" "}
+        {currentSlide === 1 && (
+          <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="absolute top-8 left-4 z-30">
+            <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Agenda</h1>
+            <p className="text-lg text-gray-300">Roadmap perjalanan belajar C++ hari ini</p>
+          </motion.div>
+        )}
+        {currentSlide === 6 && (
+          <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="absolute top-8 left-4 z-30">
+            <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-purple-400 via-pink-400 to-orange-500 bg-clip-text text-transparent">Aplikasi C++ di Dunia Nyata</h1>
+            <p className="text-lg text-gray-300">Contoh nyata penggunaan C++ di teknologi sehari-hari</p>
+          </motion.div>
+        )}
+        {currentSlide === 7 && (
+          <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="absolute top-8 left-4 z-30">
+            <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-green-400 via-teal-400 to-cyan-500 bg-clip-text text-transparent">Kesimpulan</h1>
+            <p className="text-lg text-gray-300">Ringkasan dan Tanya Jawab</p>
+          </motion.div>
+        )}
+        {currentSlide === 6 && (
+          <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="absolute top-8 left-4 z-30">
+            <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500 bg-clip-text text-transparent">Aplikasi C++ di Dunia Nyata</h1>
+            <p className="text-lg text-gray-300">Contoh nyata penggunaan C++ di teknologi sehari-hari</p>
+          </motion.div>
+        )}
+        {/* Slide Content */}
+        <div className="flex-1 flex items-center justify-center">
+          <AnimatePresence mode="wait">
+            {(() => {
+              const SlideComponent = slideComponents[currentSlide];
+              return <SlideComponent key={currentSlide} slideNumber={currentSlide + 1} totalSlides={totalSlides} />;
+            })()}
+          </AnimatePresence>
+        </div>
       </div>
     </div>
   );
