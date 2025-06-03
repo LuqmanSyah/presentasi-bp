@@ -2,12 +2,7 @@
 
 import { motion } from "framer-motion";
 
-interface CppSlide2Props {
-  slideNumber: number;
-  totalSlides: number;
-}
-
-export default function CppSlide2({ slideNumber, totalSlides }: CppSlide2Props) {
+export default function CppSlide2() {
   const agendaItems = [
     {
       number: "01",
@@ -42,18 +37,6 @@ export default function CppSlide2({ slideNumber, totalSlides }: CppSlide2Props) 
   ];
   return (
     <div className="h-full flex flex-col justify-center text-white p-8 pt-20">
-      {/* Header */}
-      <div className="flex items-center justify-between mb-8">
-        <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-sm">{slideNumber}</span>
-          </div>
-          <div className="h-px bg-gradient-to-r from-blue-500/50 to-transparent flex-1 max-w-20"></div>
-        </div>
-        <div className="text-slate-400 text-sm font-medium">
-          {slideNumber} of {totalSlides}
-        </div>
-      </div>
       <div className="max-w-5xl mx-auto">
         {" "}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeftIcon, ChevronRightIcon, ArrowsPointingOutIcon, PlayIcon, PauseIcon, SpeakerWaveIcon, SpeakerXMarkIcon, HomeIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
 import { CppSlide1, CppSlide2, CppSlide3, CppSlide4, CppSlide5, CppSlide6, CppSlide7, CppSlide8 } from "./components";
 
 const slideComponents = [CppSlide1, CppSlide2, CppSlide3, CppSlide4, CppSlide5, CppSlide6, CppSlide7, CppSlide8];
@@ -285,16 +286,13 @@ export default function CppPresentationPage() {
               </div>
             </div>
           )}
-        </div>
+        </div>{" "}
         <div className="h-px w-full bg-slate-700/50 my-1"></div> {/* Home button */}
-        <button
-          onClick={() => goToSlide(0)}
-          disabled={currentSlide === 0}
-          className="p-2.5 bg-slate-700/50 hover:bg-slate-600/70 rounded-lg transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed group"
-          title="Go to First Slide (Home)"
-        >
-          <HomeIcon className="w-5 h-5 text-slate-300 group-hover:text-white" />
-        </button>
+        <Link href="/">
+          <button className="p-2.5 bg-slate-700/50 hover:bg-slate-600/70 rounded-lg transition-all duration-200 group w-full" title="Back to Home">
+            <HomeIcon className="w-5 h-5 text-slate-300 group-hover:text-white" />
+          </button>
+        </Link>
         {/* Previous button */}
         <button
           onClick={prevSlide}
@@ -392,13 +390,13 @@ export default function CppPresentationPage() {
             <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500 bg-clip-text text-transparent">Aplikasi C++ di Dunia Nyata</h1>
             <p className="text-lg text-gray-300">Contoh nyata penggunaan C++ di teknologi sehari-hari</p>
           </motion.div>
-        )}
+        )}{" "}
         {/* Slide Content */}
         <div className="flex-1 flex items-center justify-center">
           <AnimatePresence mode="wait">
             {(() => {
               const SlideComponent = slideComponents[currentSlide];
-              return <SlideComponent key={currentSlide} slideNumber={currentSlide + 1} totalSlides={totalSlides} />;
+              return <SlideComponent key={currentSlide} />;
             })()}
           </AnimatePresence>
         </div>

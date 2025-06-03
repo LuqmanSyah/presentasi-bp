@@ -2,12 +2,7 @@
 
 import { motion } from "framer-motion";
 
-interface Slide7Props {
-  slideNumber: number;
-  totalSlides: number;
-}
-
-export default function Slide7({ slideNumber, totalSlides }: Slide7Props) {
+export default function Slide7() {
   const keyPoints = [
     {
       emoji: "🔑",
@@ -38,34 +33,8 @@ export default function Slide7({ slideNumber, totalSlides }: Slide7Props) {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="flex flex-col justify-center items-center min-h-full w-full px-6 md:px-12 py-8"
     >
+      {" "}
       <div className="max-w-7xl w-full space-y-8">
-        {/* Header */}
-        <div className="flex items-center justify-between mb-8">
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">{slideNumber}</span>
-            </div>
-            <div className="h-px bg-gradient-to-r from-blue-500/50 to-transparent flex-1 max-w-20"></div>
-          </div>
-          <div className="text-slate-400 text-sm font-medium">
-            {slideNumber} of {totalSlides}
-          </div>
-        </div>
-        {/* Title */}
-        <div className="text-center mb-16">
-          <motion.h1
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.2, type: "spring", stiffness: 100 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent leading-tight mb-4"
-          >
-            Kesimpulan – Python: Bahasa Modern, Fleksibel, dan Humanis
-          </motion.h1>
-
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} className="flex justify-center">
-            <div className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-6 py-2 rounded-full text-sm font-semibold">🎯 Ringkasan Presentasi</div>
-          </motion.div>
-        </div>{" "}
         {/* Key points in horizontal layout */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12">
           {keyPoints.map((point, index) => (

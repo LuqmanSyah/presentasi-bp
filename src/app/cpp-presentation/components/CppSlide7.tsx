@@ -2,12 +2,7 @@
 
 import { motion } from "framer-motion";
 
-interface CppSlide7Props {
-  slideNumber: number;
-  totalSlides: number;
-}
-
-export default function CppSlide7({ slideNumber, totalSlides }: CppSlide7Props) {
+export default function CppSlide7() {
   const applications = [
     {
       category: "Game",
@@ -59,20 +54,8 @@ export default function CppSlide7({ slideNumber, totalSlides }: CppSlide7Props) 
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="flex flex-col justify-center items-center min-h-full w-full px-6 md:px-12 py-8 pt-20 text-white"
     >
+      {" "}
       <div className="max-w-7xl w-full space-y-6">
-        {/* Header with slide number */}
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-cyan-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">{slideNumber}</span>
-            </div>
-            <div className="h-px bg-gradient-to-r from-purple-500/50 to-transparent flex-1 max-w-20"></div>
-          </div>
-          <div className="text-slate-400 text-sm font-medium">
-            {slideNumber} of {totalSlides}
-          </div>
-        </div>
-
         {/* Cards section */}
         <div className="flex-1 flex items-center justify-center">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 w-full justify-items-center">

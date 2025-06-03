@@ -2,29 +2,11 @@
 
 import { motion } from "framer-motion";
 
-interface CppSlide3Props {
-  slideNumber: number;
-  totalSlides: number;
-}
-
-export default function CppSlide3({ slideNumber, totalSlides }: CppSlide3Props) {
+export default function CppSlide3() {
   return (
-    <div className="h-full text-white p-8 pt-20 overflow-hidden relative">
-      {/* Header */}
-      <div className="flex items-center justify-between mb-8">
-        <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-sm">{slideNumber}</span>
-          </div>
-          <div className="h-px bg-gradient-to-r from-blue-500/50 to-transparent flex-1 max-w-20"></div>
-        </div>
-        <div className="text-slate-400 text-sm font-medium">
-          {slideNumber} of {totalSlides}
-        </div>
-      </div>
-
+    <div className="h-full text-white p-8 pt-20 overflow-hidden relative flex items-center justify-center">
       {/* Main Content Container */}
-      <div className="max-w-7xl mx-auto relative">
+      <div className="max-w-7xl w-full relative">
         {/* Background connecting line */}
         <motion.div
           initial={{ scaleX: 0 }}
@@ -34,9 +16,9 @@ export default function CppSlide3({ slideNumber, totalSlides }: CppSlide3Props) 
         />
 
         {/* Evolution Timeline */}
-        <div className="relative">
+        <div className="relative flex justify-center">
           {/* Unified Cards */}
-          <div className="grid grid-cols-2 gap-12 mb-8">
+          <div className="grid grid-cols-2 gap-12 mb-8 w-full max-w-6xl">
             {/* Era C - Unified Card */}
             <motion.div initial={{ opacity: 0, x: -50, scale: 0.9 }} animate={{ opacity: 1, x: 0, scale: 1 }} transition={{ duration: 0.8, delay: 0.3, type: "spring", stiffness: 100 }} className="relative group">
               <motion.div

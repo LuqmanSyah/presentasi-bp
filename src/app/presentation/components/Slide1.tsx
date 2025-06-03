@@ -2,12 +2,7 @@
 
 import { motion } from "framer-motion";
 
-interface Slide1Props {
-  slideNumber: number;
-  totalSlides: number;
-}
-
-export default function Slide1({ slideNumber, totalSlides }: Slide1Props) {
+export default function Slide1() {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -16,20 +11,8 @@ export default function Slide1({ slideNumber, totalSlides }: Slide1Props) {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="flex flex-col justify-center items-center min-h-full w-full px-6 md:px-12 py-8"
     >
+      {" "}
       <div className="max-w-5xl w-full space-y-8">
-        {/* Header with slide number */}
-        <div className="flex items-center justify-between mb-8">
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">{slideNumber}</span>
-            </div>
-            <div className="h-px bg-gradient-to-r from-blue-500/50 to-transparent flex-1 max-w-20"></div>
-          </div>
-          <div className="text-slate-400 text-sm font-medium">
-            {slideNumber} of {totalSlides}
-          </div>
-        </div>
-
         {/* Hero section with large centered layout */}
         <div className="text-center space-y-8 min-h-[60vh] flex flex-col justify-center">
           {/* Main title with special animation */}

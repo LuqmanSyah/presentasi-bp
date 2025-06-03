@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeftIcon, ChevronRightIcon, ArrowsPointingOutIcon, PlayIcon, PauseIcon, SpeakerWaveIcon, SpeakerXMarkIcon, HomeIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
 import { Slide1, Slide2, Slide3, Slide4, Slide5, Slide6, Slide7 } from "./components";
 
 const slideComponents = [Slide1, Slide2, Slide3, Slide4, Slide5, Slide6, Slide7];
@@ -295,17 +296,14 @@ export default function PresentationPage() {
               </div>
             </div>
           )}
-        </div>
+        </div>{" "}
         <div className="h-px w-full bg-slate-700/50 my-1"></div> {/* Separator */}
         {/* Home button */}
-        <button
-          onClick={() => goToSlide(0)}
-          disabled={currentSlide === 0}
-          className="p-2.5 bg-slate-700/50 hover:bg-slate-600/70 rounded-lg transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed group"
-          title="Go to First Slide (Home)"
-        >
-          <HomeIcon className="w-5 h-5 text-slate-300 group-hover:text-white" />
-        </button>
+        <Link href="/">
+          <button className="p-2.5 bg-slate-700/50 hover:bg-slate-600/70 rounded-lg transition-all duration-200 group w-full" title="Back to Home">
+            <HomeIcon className="w-5 h-5 text-slate-300 group-hover:text-white" />
+          </button>
+        </Link>
         {/* Previous button */}
         <button
           onClick={prevSlide}
@@ -352,12 +350,49 @@ export default function PresentationPage() {
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }} className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-cyan-500/10 z-20" />
         )}
       </AnimatePresence>{" "}
+      {/* Slide Titles positioned at top-left */}
+      {currentSlide === 1 && (
+        <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="absolute top-8 left-4 z-30">
+          <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-white via-slate-200 to-slate-300 bg-clip-text text-transparent">Pengenalan Pemrograman & Sejarah Python</h1>
+          <p className="text-lg text-gray-300">Memahami konsep dasar dan latar belakang Python</p>
+        </motion.div>
+      )}
+      {currentSlide === 2 && (
+        <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="absolute top-8 left-4 z-30">
+          <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-green-400 via-blue-400 to-cyan-500 bg-clip-text text-transparent">Perkembangan Awal Python</h1>
+          <p className="text-lg text-gray-300">Perjalanan Python dari proyek pribadi ke bahasa global</p>
+        </motion.div>
+      )}
+      {currentSlide === 3 && (
+        <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="absolute top-8 left-4 z-30">
+          <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-500 bg-clip-text text-transparent">Python dari Komunitas ke Industri</h1>
+          <p className="text-lg text-gray-300">Evolusi Python dalam dunia akademik dan industri</p>
+        </motion.div>
+      )}
+      {currentSlide === 4 && (
+        <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="absolute top-8 left-4 z-30">
+          <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-purple-400 via-pink-400 to-orange-500 bg-clip-text text-transparent">Filosofi Desain Python & The Zen of Python</h1>
+          <p className="text-lg text-gray-300">Prinsip-prinsip yang menjadi fondasi Python</p>
+        </motion.div>
+      )}
+      {currentSlide === 5 && (
+        <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="absolute top-8 left-4 z-30">
+          <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-orange-400 via-red-400 to-pink-500 bg-clip-text text-transparent">Evolusi Versi Python & Penggunaannya</h1>
+          <p className="text-lg text-gray-300">Perkembangan versi dan aplikasi Python modern</p>
+        </motion.div>
+      )}
+      {currentSlide === 6 && (
+        <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="absolute top-8 left-4 z-30">
+          <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent">Kesimpulan – Python: Bahasa Modern, Fleksibel, dan Humanis</h1>
+          <p className="text-lg text-gray-300">Ringkasan dan refleksi tentang Python</p>
+        </motion.div>
+      )}{" "}
       {/* Main Slide Container */}
       <div className="h-screen flex items-center justify-center relative pl-24">
         <AnimatePresence mode="wait">
           {(() => {
             const SlideComponent = slideComponents[currentSlide];
-            return <SlideComponent key={currentSlide} slideNumber={currentSlide + 1} totalSlides={totalSlides} />;
+            return <SlideComponent key={currentSlide} />;
           })()}
         </AnimatePresence>
       </div>

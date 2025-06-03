@@ -2,12 +2,7 @@
 
 import { motion } from "framer-motion";
 
-interface Slide6Props {
-  slideNumber: number;
-  totalSlides: number;
-}
-
-export default function Slide6({ slideNumber, totalSlides }: Slide6Props) {
+export default function Slide6() {
   const versions = [
     {
       version: "Python 1.x",
@@ -46,30 +41,8 @@ export default function Slide6({ slideNumber, totalSlides }: Slide6Props) {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="flex flex-col justify-center items-center min-h-full w-full px-6 md:px-12 py-8"
     >
+      {" "}
       <div className="max-w-7xl w-full space-y-8">
-        {/* Header */}
-        <div className="flex items-center justify-between mb-8">
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">{slideNumber}</span>
-            </div>
-            <div className="h-px bg-gradient-to-r from-blue-500/50 to-transparent flex-1 max-w-20"></div>
-          </div>
-          <div className="text-slate-400 text-sm font-medium">
-            {slideNumber} of {totalSlides}
-          </div>
-        </div>
-        {/* Title */}
-        <div className="text-center mb-12">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white via-slate-200 to-slate-300 bg-clip-text text-transparent leading-tight"
-          >
-            Evolusi Versi Python & Penggunaannya
-          </motion.h1>
-        </div>{" "}
         {/* Content Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Version Timeline - Left Side */}

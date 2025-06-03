@@ -2,12 +2,7 @@
 
 import { motion } from "framer-motion";
 
-interface CppSlide8Props {
-  slideNumber: number;
-  totalSlides: number;
-}
-
-export default function CppSlide8({ slideNumber, totalSlides }: CppSlide8Props) {
+export default function CppSlide8() {
   const keyPoints = [
     {
       icon: "🚀",
@@ -43,19 +38,8 @@ export default function CppSlide8({ slideNumber, totalSlides }: CppSlide8Props) 
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="flex flex-col justify-center items-center min-h-full w-full px-6 md:px-12 py-8 pt-20"
     >
+      {" "}
       <div className="max-w-6xl w-full space-y-8">
-        {/* Header with slide number */}
-        <div className="flex items-center justify-between mb-8">
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-cyan-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">{slideNumber}</span>
-            </div>
-            <div className="h-px bg-gradient-to-r from-purple-500/50 to-transparent flex-1 max-w-20"></div>
-          </div>
-          <div className="text-slate-400 text-sm font-medium">
-            {slideNumber} of {totalSlides}
-          </div>
-        </div>{" "}
         {/* Enhanced Key points grid */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.4 }} className="grid md:grid-cols-2 gap-8 mb-12">
           {keyPoints.map((point, index) => (
@@ -229,135 +213,6 @@ export default function CppSlide8({ slideNumber, totalSlides }: CppSlide8Props) 
               Pertanyaan?
             </motion.p>
           </div>
-
-          {/* Enhanced Thank you message */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8, rotateX: -20 }}
-            animate={{ opacity: 1, scale: 1, rotateX: 0 }}
-            transition={{ duration: 1, delay: 1.8, type: "spring", stiffness: 80 }}
-            whileHover={{
-              scale: 1.02,
-              y: -5,
-              transition: { duration: 0.3 },
-            }}
-            className="relative bg-gradient-to-br from-slate-800/80 via-slate-800/60 to-slate-900/80 backdrop-blur-xl rounded-3xl p-10 border border-purple-500/30 hover:border-cyan-400/50 mt-12 group overflow-hidden shadow-2xl hover:shadow-purple-500/30"
-            style={{ transformStyle: "preserve-3d" }}
-          >
-            {/* Enhanced background effects */}
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-cyan-400/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-purple-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200" />
-
-            {/* Animated dot pattern */}
-            <div
-              className="absolute inset-0 opacity-0 group-hover:opacity-15 transition-opacity duration-700"
-              style={{
-                backgroundImage: `radial-gradient(circle at 3px 3px, rgba(168, 85, 247, 0.4) 2px, transparent 0)`,
-                backgroundSize: "30px 30px",
-              }}
-            />
-
-            {/* Large corner accent */}
-            <motion.div
-              className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-purple-400/20 via-cyan-500/15 to-blue-500/20 rounded-bl-full"
-              initial={{ scale: 0, rotate: -45, opacity: 0 }}
-              animate={{ scale: 1, rotate: 0, opacity: 1 }}
-              transition={{ duration: 1, delay: 2, type: "spring", stiffness: 150 }}
-            />
-
-            <div className="relative z-10">
-              <motion.h3
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 2.2 }}
-                className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent mb-6 relative group-hover:scale-105 transition-transform duration-300"
-              >
-                <span className="relative z-10 flex items-center justify-center gap-4">
-                  <motion.span
-                    animate={{
-                      rotate: [0, 15, -15, 0],
-                      scale: [1, 1.2, 1],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    🙏
-                  </motion.span>
-                  Terima Kasih!
-                </span>
-
-                {/* Enhanced text glow */}
-                <span className="absolute inset-0 text-4xl font-bold bg-gradient-to-r from-purple-300 to-cyan-300 bg-clip-text text-transparent opacity-0 group-hover:opacity-50 blur-sm transition-opacity duration-700">
-                  🙏 Terima Kasih!
-                </span>
-              </motion.h3>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 2.4 }}
-                className="relative bg-black/30 backdrop-blur-sm rounded-2xl p-6 border border-purple-400/20 hover:border-cyan-400/30 transition-all duration-300 group/inner"
-              >
-                {/* Inner glow */}
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-400/5 to-cyan-400/5 opacity-0 group-hover/inner:opacity-100 transition-opacity duration-500 rounded-2xl" />
-
-                <p className="relative z-10 text-slate-300 group-hover/inner:text-slate-100 transition-colors duration-300 text-xl leading-relaxed">Mari bersama-sama mengeksplorasi dunia pemrograman C++</p>
-
-                {/* Animated underline */}
-                <motion.div
-                  initial={{ width: 0 }}
-                  animate={{ width: "100%" }}
-                  transition={{ duration: 1.5, delay: 2.6 }}
-                  className="mt-4 h-2 bg-gradient-to-r from-purple-400 via-cyan-400 to-blue-400 rounded-full mx-auto relative overflow-hidden"
-                >
-                  {/* Shine effect */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent w-1/3"
-                    animate={{
-                      x: ["-100%", "300%"],
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: "linear",
-                      delay: 3,
-                    }}
-                  />
-                </motion.div>
-              </motion.div>
-            </div>
-
-            {/* Enhanced floating particles */}
-            <div className="absolute inset-0 pointer-events-none">
-              {[...Array(6)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute w-2 h-2 bg-gradient-to-r from-purple-400 to-cyan-400 rounded-full opacity-0 group-hover:opacity-100"
-                  style={{
-                    left: `${10 + i * 15}%`,
-                    top: `${20 + i * 12}%`,
-                  }}
-                  animate={{
-                    y: [-15, -30, -15],
-                    opacity: [0, 0.8, 0],
-                    scale: [0.3, 1.2, 0.3],
-                    rotate: [0, 180, 360],
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    delay: i * 0.5,
-                    ease: "easeInOut",
-                  }}
-                />
-              ))}
-            </div>
-
-            {/* Enhanced shadow effect */}
-            <motion.div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-cyan-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl blur-2xl -z-10" initial={false} />
-          </motion.div>
         </motion.div>
       </div>
     </motion.div>

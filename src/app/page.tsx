@@ -23,21 +23,18 @@ export default function Home() {
           <motion.div whileHover={{ scale: 1.05, y: -5 }} whileTap={{ scale: 0.95 }} className="group">
             <Link href="/presentation">
               <div className="bg-gradient-to-br from-blue-600/20 to-green-600/20 backdrop-blur-sm rounded-xl p-8 border border-blue-500/30 hover:border-blue-400/50 transition-all duration-300 h-full">
-                <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.6, type: "spring", stiffness: 200 }} className="text-6xl mb-6">
-                  🐍
+                {" "}
+                <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.6, type: "spring", stiffness: 200 }} className="mb-6 flex justify-center">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo" className="w-16 h-16 object-contain" />
                 </motion.div>
-
                 <h2 className="text-3xl font-bold text-white mb-4 group-hover:text-blue-300 transition-colors">Python</h2>
-
                 <p className="text-gray-300 mb-6 group-hover:text-gray-200 transition-colors">Pengenalan Pemrograman dan Sejarah Python</p>
-
                 <div className="space-y-2 text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
                   <div>• Sejarah dan Filosofi Python</div>
                   <div>• Sintaks Dasar</div>
                   <div>• Aplikasi Python</div>
                   <div>• Kelebihan & Kekurangan</div>
                 </div>
-
                 <motion.div className="mt-6 inline-flex items-center space-x-2 text-blue-400 group-hover:text-blue-300 transition-colors" whileHover={{ x: 5 }}>
                   <span>Mulai Presentasi</span>
                   <span>→</span>
@@ -50,21 +47,18 @@ export default function Home() {
           <motion.div whileHover={{ scale: 1.05, y: -5 }} whileTap={{ scale: 0.95 }} className="group">
             <Link href="/cpp-presentation">
               <div className="bg-gradient-to-br from-purple-600/20 to-pink-600/20 backdrop-blur-sm rounded-xl p-8 border border-purple-500/30 hover:border-purple-400/50 transition-all duration-300 h-full">
-                <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.8, type: "spring", stiffness: 200 }} className="text-6xl mb-6">
-                  🚀
+                {" "}
+                <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.8, type: "spring", stiffness: 200 }} className="mb-6 flex justify-center">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" alt="C++ Logo" className="w-16 h-16 object-contain" />
                 </motion.div>
-
                 <h2 className="text-3xl font-bold text-white mb-4 group-hover:text-purple-300 transition-colors">C++</h2>
-
                 <p className="text-gray-300 mb-6 group-hover:text-gray-200 transition-colors">Pemrograman Berorientasi Objek dan Sistem</p>
-
                 <div className="space-y-2 text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
                   <div>• Sejarah C++</div>
                   <div>• Object-Oriented Programming</div>
                   <div>• Aplikasi C++</div>
                   <div>• Performa & Efisiensi</div>
                 </div>
-
                 <motion.div className="mt-6 inline-flex items-center space-x-2 text-purple-400 group-hover:text-purple-300 transition-colors" whileHover={{ x: 5 }}>
                   <span>Mulai Presentasi</span>
                   <span>→</span>
